@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canada CRS &amp; Australia PR Points Calculator | Supreme Immigration Ahmedabad</title>
+  <meta name="description" content="Calculate your Canada Express Entry CRS score and Australia Skilled PR points in real-time. Verified against official IRCC and Home Affairs guidelines.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#091e42',
+              blue: '#0b3975',
+              deep: '#00227b',
+              amber: '#d97706',
+              gold: '#f59e0b',
+              accent: '#fef3c7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Top bar -->
+  <div class="bg-[#06152d] text-slate-300 text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-slate-800 w-full">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-2">
+      <div class="flex items-center flex-wrap justify-center md:justify-start gap-3 sm:gap-4 text-center md:text-left">
+        <span class="inline-flex items-center gap-1.5 text-[#c59b27] font-bold tracking-wide uppercase text-[11px]">
+          <i class="fa-solid fa-award text-[#c59b27]"></i> AN ISO 9001:2015 CERTIFIED COMPANY
+        </span>
+        <span class="hidden sm:inline text-slate-700">|</span>
+        <span class="flex items-center gap-1.5 text-slate-300 text-xs">
+          <i class="fa-solid fa-shield-halved text-[#c59b27]"></i> Estd. 2018 &bull; MARA &amp; RCIC Aligned Advisory
+        </span>
+        <span class="hidden xl:inline text-slate-700">|</span>
+        <span class="hidden xl:flex items-center gap-1.5 text-slate-300 text-xs">
+          <i class="fa-solid fa-location-dot text-[#c59b27]"></i> 211, Iscon Emporio, Satellite, Ahmedabad
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-medium">
+        <a href="tel:+919725009890" class="flex items-center gap-1.5 text-slate-200 hover:text-[#c59b27] transition font-bold">
+          <i class="fa-solid fa-phone text-[#c59b27]"></i> +91 9725009890
+        </a>
+        <span class="text-slate-700">|</span>
+        <a href="mailto:supremeimmigration.info@gmail.com" class="hover:text-[#c59b27] transition text-slate-300 hidden sm:flex items-center gap-1.5">
+          <i class="fa-solid fa-envelope text-[#c59b27]"></i> supremeimmigration.info@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 glass-nav w-full shadow-sm bg-white"><div class="w-full px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center transition hover:opacity-95 py-1">
+          <img src="assets/images/logo-header-transparent.png" alt="Supreme Immigration Official Logo" class="h-12 sm:h-16 md:h-20 w-auto object-contain max-w-[280px] sm:max-w-[420px] md:max-w-[500px]">
+        </a>
+
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-700">
+          <a href="index.html" class="hover:text-blue-900 transition">Home</a>
+          <a href="destinations.html" class="hover:text-blue-900 transition">Destinations</a>
+          <a href="services.html" class="hover:text-blue-900 transition">Services</a>
+          <a href="calculator.html" class="text-blue-900 border-b-2 border-amber-500 pb-0.5 flex items-center gap-1 font-bold">
+            <i class="fa-solid fa-calculator text-amber-600"></i> CRS Calculator
+          </a>
+          <a href="index.html#process" class="hover:text-blue-900 transition">Process</a>
+          <a href="contact.html" class="hover:text-blue-900 transition">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button class="open-consultation-modal px-5 py-2.5 rounded-xl bg-blue-950 hover:bg-blue-900 text-white text-xs font-bold shadow-md transition">
+            Book Free Assessment
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div class="hero-gradient text-white py-14">
+    <div class="fluid-container text-center">
+      <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Official Algorithm</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold mt-2 font-heading">Immigration Points Calculator</h1>
+      <p class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto mt-2">
+        Simulate your Canada Comprehensive Ranking System (CRS) score and Australian GSM (189/190/491) points dynamically.
+      </p>
+    </div>
+  </div>
+
+  <!-- Calculator Component Section -->
+  <section class="py-16 bg-slate-50">
+    <div class="fluid-container">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Form Inputs -->
+        <div class="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+          <h3 class="text-xl font-extrabold text-blue-950 mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-amber-600"></i>
+            <span>Applicant Profile Parameters</span>
+          </h3>
+
+          <form id="crsCalculatorForm" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Target Country Program</label>
+                <select id="calcSystem" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
+                  <option value="canada">Canada Express Entry (CRS Out of 1200)</option>
+                  <option value="australia">Australia Skilled GSM 189/190/491</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Applicant Age (Years)</label>
+                <select id="calcAge" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
+                  <option value="26">20 - 29 Years (Maximum Points: 110 Canada / 30 Aus)</option>
+                  <option value="30">30 Years</option>
+                  <option value="31">31 Years</option>
+                  <option value="32">32 Years</option>
+                  <option value="33">33 Years</option>
+                  <option value="35">35 Years</option>
+                  <option value="38">38 Years</option>
+                  <option value="42">42 Years</option>
+                  <option value="46">45+ Years</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Highest Education Level (ECA Verified)</label>
+                <select id="calcEducation" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
+                  <option value="masters">Master's Degree / Professional Degree</option>
+                  <option value="two_degrees">Two or More Certificates (One 3+ Years)</option>
+                  <option value="bachelors">Bachelor's Degree (3 or 4 Years)</option>
+                  <option value="phd">Doctoral Degree (Ph.D.)</option>
+                  <option value="diploma">Post-Secondary Diploma (1 or 2 Years)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Skilled Work Experience (Years)</label>
+                <select id="calcExperience" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
+                  <option value="3">3+ Years (Full-time Continuous)</option>
+                  <option value="5">5 to 7 Years</option>
+                  <option value="8">8+ Years (Maximum overseas points)</option>
+                  <option value="2">2 Years</option>
+                  <option value="1">1 Year</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-blue-50/60 border border-blue-200">
+              <label class="block text-xs font-bold text-blue-950 mb-3">
+                <i class="fa-solid fa-language text-amber-600 mr-1.5"></i> Language Proficiency (IELTS General / PTE Equivalent Bands)
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div>
+                  <span class="block text-[11px] font-semibold text-slate-700 mb-1">Listening</span>
+                  <select id="calcIeltsL" class="w-full px-2.5 py-2 rounded-lg bg-white border border-slate-300 text-xs font-medium">
+                    <option value="8.5">8.5 - 9.0 (CLB 10)</option>
+                    <option value="8.0" selected>8.0 (CLB 9)</option>
+                    <option value="7.5">7.5 (CLB 8)</option>
+                    <option value="6.0">6.0 - 7.0 (CLB 7)</option>
+                  </select>
+                </div>
+                <div>
+                  <span class="block text-[11px] font-semibold text-slate-700 mb-1">Reading</span>
+                  <select id="calcIeltsR" class="w-full px-2.5 py-2 rounded-lg bg-white border border-slate-300 text-xs font-medium">
+                    <option value="8.0">8.0 - 9.0 (CLB 10)</option>
+                    <option value="7.0" selected>7.0 (CLB 9)</option>
+                    <option value="6.5">6.5 (CLB 8)</option>
+                    <option value="6.0">6.0 (CLB 7)</option>
+                  </select>
+                </div>
+                <div>
+                  <span class="block text-[11px] font-semibold text-slate-700 mb-1">Writing</span>
+                  <select id="calcIeltsW" class="w-full px-2.5 py-2 rounded-lg bg-white border border-slate-300 text-xs font-medium">
+                    <option value="7.5">7.5 - 9.0 (CLB 10)</option>
+                    <option value="7.0" selected>7.0 (CLB 9)</option>
+                    <option value="6.5">6.5 (CLB 8)</option>
+                    <option value="6.0">6.0 (CLB 7)</option>
+                  </select>
+                </div>
+                <div>
+                  <span class="block text-[11px] font-semibold text-slate-700 mb-1">Speaking</span>
+                  <select id="calcIeltsS" class="w-full px-2.5 py-2 rounded-lg bg-white border border-slate-300 text-xs font-medium">
+                    <option value="7.5">7.5 - 9.0 (CLB 10)</option>
+                    <option value="7.0" selected>7.0 (CLB 9)</option>
+                    <option value="6.5">6.5 (CLB 8)</option>
+                    <option value="6.0">6.0 (CLB 7)</option>
+                  </select>
+                </div>
+              </div>
+              <p class="text-[10px] text-slate-500 mt-2">
+                *Pro-Tip: Achieving CLB 9 (Listening 8.0, Reading 7.0, Writing 7.0, Speaking 7.0) unlocks up to 50 bonus skill transferability points for Canada Express Entry!
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Marital Status</label>
+                <select id="calcMarital" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs font-semibold focus:ring-2 focus:ring-blue-600 outline-none">
+                  <option value="single">Single / Never Married (100% Core Points)</option>
+                  <option value="married">Married (With Accompanying Spouse Factor)</option>
+                </select>
+              </div>
+
+              <div class="flex items-center pt-5">
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="calcJobOffer" class="w-4 h-4 rounded text-blue-900 border-slate-300">
+                  <span class="text-xs text-slate-700 font-semibold">Valid LMIA Approved Job Offer (+50 pts)</span>
+                </label>
+              </div>
+            </div>
+
+          </form>
+
+          <!-- CLB Benchmark Reference Table -->
+          <div class="mt-8 pt-6 border-t border-slate-200">
+            <h4 class="font-bold text-blue-950 text-xs uppercase tracking-wider mb-3">Canadian Language Benchmark (CLB) Reference</h4>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="bg-slate-100 text-slate-700 font-bold">
+                    <th class="p-2 border">CLB Level</th>
+                    <th class="p-2 border">IELTS Listening</th>
+                    <th class="p-2 border">IELTS Reading</th>
+                    <th class="p-2 border">IELTS Writing</th>
+                    <th class="p-2 border">IELTS Speaking</th>
+                  </tr>
+                </thead>
+                <tbody class="text-slate-600">
+                  <tr class="border-b bg-amber-50/50 font-bold text-amber-900">
+                    <td class="p-2 border">CLB 9 (Magic Band)</td>
+                    <td class="p-2 border">8.0</td>
+                    <td class="p-2 border">7.0</td>
+                    <td class="p-2 border">7.0</td>
+                    <td class="p-2 border">7.0</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 border">CLB 8</td>
+                    <td class="p-2 border">7.5</td>
+                    <td class="p-2 border">6.5</td>
+                    <td class="p-2 border">6.5</td>
+                    <td class="p-2 border">6.5</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2 border">CLB 7</td>
+                    <td class="p-2 border">6.0</td>
+                    <td class="p-2 border">6.0</td>
+                    <td class="p-2 border">6.0</td>
+                    <td class="p-2 border">6.0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Result Card -->
+        <div class="lg:col-span-4 sticky top-28 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl">
+          <div class="text-center pb-6 border-b border-slate-200">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider" id="calcResultSystemName">
+              Estimated Canada Express Entry CRS Score
+            </span>
+            <div class="text-5xl font-black text-blue-950 mt-3 font-heading tracking-tight" id="calcScoreDisplay">
+              472 / 1200
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Updated dynamically as you change values</p>
+          </div>
+
+          <div class="py-5">
+            <div id="calcVerdictText" class="p-4 rounded-xl border text-sm font-medium text-emerald-800 bg-emerald-50 border-emerald-300">
+              <strong>Evaluation:</strong> Strong profile! Excellent candidate for Express Entry Category draws or Provincial Nominee Programs.
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <button class="open-consultation-modal w-full py-3.5 rounded-xl bg-blue-950 hover:bg-blue-900 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-file-shield text-amber-400"></i>
+              <span>Book In-Person File Review</span>
+            </button>
+
+            <a href="https://wa.me/919725009890?text=Hi%20Supreme%20Immigration,%20I%20used%20your%20calculator%20and%20want%20to%20review%20my%20points." target="_blank" class="w-full py-3 rounded-xl border border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-bold text-xs transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-600 text-base"></i>
+              <span>Send Score to WhatsApp (+91 9725009890)</span>
+            </a>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 text-[11px] text-slate-500 space-y-1">
+            <p><i class="fa-solid fa-location-dot text-amber-600 mr-1"></i> Office: 211, Iscon Emporio, Satellite Ahmedabad</p>
+            <p><i class="fa-solid fa-award text-blue-600 mr-1"></i> ISO 9001:2015 &bull; MARA &bull; RCIC Standards</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+      <p class="font-bold text-white uppercase tracking-wider">Supreme Immigration &bull; An ISO 9001:2015 Certified Company</p>
+      <p>211, Iscon Emporio, Beside Star Bazar, Jodhpur Char Rasta, Satellite, Ahmedabad-380015</p>
+      <p class="text-slate-500">&copy; 2018 - 2026 Supreme Immigration. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modal & Floating WhatsApp -->
+  <a href="https://wa.me/919725009890?text=Hello%20Supreme%20Immigration,%20I%20want%20to%20discuss%20my%20points%20evaluation" target="_blank" class="whatsapp-float bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Shared Modal -->
+  <div id="consultationModal" class="hidden fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button class="close-modal absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-xl"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="font-extrabold text-blue-950 text-lg mb-1">Free Profile Evaluation</h3>
+      <p class="text-xs text-slate-500 mb-4">Supreme Immigration Ahmedabad &bull; ISO 9001:2015 Certified</p>
+      <form id="consultationForm" class="space-y-3">
+        <input type="text" id="modalName" required placeholder="Your Name" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-300">
+        <input type="tel" id="modalPhone" required placeholder="Mobile / WhatsApp" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-300">
+        <input type="email" id="modalEmail" required placeholder="Email Address" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-300">
+        <select id="modalCountry" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 bg-white">
+          <option value="Canada">Canada</option>
+          <option value="Australia">Australia</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States">United States</option>
+        </select>
+        <select id="modalVisaType" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-300 bg-white">
+          <option value="Permanent Residency">Permanent Residency</option>
+          <option value="Student Visa">Student Visa</option>
+          <option value="Visitor Visa">Visitor Visa</option>
+        </select>
+        <button type="submit" class="w-full py-3 rounded-xl bg-blue-950 text-white font-bold text-xs">
+          Submit &amp; Chat on WhatsApp (+91 9725009890)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
